@@ -1,8 +1,9 @@
-from functions.utils import cleanPath, simpleSearchDown
+from functions.utils import cleanPath, quickSearchDown
 
 
 def main():
-    simpleSearchDown("spotify")
+    quickSearchDown("spotify")
     # cleanPath("G:\\_Local\\Programming\\Python\\Projects\\PastebinScraper\\files\\temp\\*")
+
 
 main()

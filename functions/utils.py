@@ -29,8 +29,7 @@ def keyListSearch(keyList, numOfRes, sincePub):  # takes a keywordList, number o
         pastebinKey = 'site:pastebin.com ' + key
         for url in search(pastebinKey, tbs=since, stop=numOfRes):
             if '/u/' not in url:  # balcklist user pastebins
-                results.append(url)  # current search results
-
+                results.append(url)  # current search result
     return results
 
 
@@ -49,8 +48,7 @@ def downAndRetLoc(url):  # download to location temp and return location of down
     request = req.get(rawURL, allow_redirects=True)  # setup req api
     path = "files\\temp\\" + filename  # compute path
     with open(path, 'wb') as f:
-        if not exists(path):  # check if download unnecessary
-            f.write(request.content)  # download req
+        f.write(request.content)  # download request
         return path
 
 
@@ -77,12 +75,12 @@ def fileToLineList(path):  # todo replace with direct iteration of file lines if
     return open(path).readlines()  # list from file lines
 
 
-def simpleSearchDown(keyword):
+def quickSearchDown(keyword):
     """
     Simple search and download function, downloading the first 10 found results
 
     :param str keyword: a keyword to be searched on google
     """
-    urllist = (keyListSearch([keyword], 10, 'a'))
+    urllist = (keyListSearch([keyword], 10, 'm'))
     for i in urllist:
         print(downAndRetLoc(i))
